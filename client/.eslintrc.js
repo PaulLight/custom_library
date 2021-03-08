@@ -19,5 +19,6 @@ module.exports = {
     'indent': ['error', 2],
     'no-multi-spaces': ['error'],
     'max-len': ['error', 150, { ignoreUrls: true }],
+    "comma-dangle": ["error", "never"]
   },
 };
