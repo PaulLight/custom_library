@@ -60,22 +60,22 @@ export default {
         selectCategoryArray: [
           { text: 'One', value: 'A' },
           { text: 'Two', value: 'B' },
-          { text: 'Three', value: 'C' },
+          { text: 'Three', value: 'C' }
         ],
         datePicker: true,
-        itemDescription: '',
-      },
+        itemDescription: ''
+      }
     };
   },
   methods: {
     addItemToLibrary(e) {
       e.preventDefault();
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
-  .field {
-    padding: 20px 0;
-  }
+.field {
+  padding: 20px 0;
+}
 </style>

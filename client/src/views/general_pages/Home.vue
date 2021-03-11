@@ -17,18 +17,18 @@ export default {
   name: 'Home',
   components: {
     HelloWorld,
-    ItemForm,
+    ItemForm
   },
   data() {
     return {
-      showForm: false,
+      showForm: false
     };
   },
   methods: {
     toggleFormVisibility() {
       this.showForm = !this.showForm;
-    },
-  },
+    }
+  }
 };
 </script>
 
