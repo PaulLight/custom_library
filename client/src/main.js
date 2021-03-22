@@ -13,5 +13,6 @@ Vue.use(Vuetify);
 new Vue({
   router,
   store,
+  vuetify: new Vuetify(),
   render: (h) => h(App)
 }).$mount('#app');

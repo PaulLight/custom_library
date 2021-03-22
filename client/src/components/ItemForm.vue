@@ -10,7 +10,7 @@
             name="new-name"
             autocomplete="off"
             v-model="formData.name"
-            placeholder="Ocean..">
+            placeholder="Ocean.."/>
         </div>
       </div>
       <div class="field">

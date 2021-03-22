@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../../assets/media/logo_main.png"/>
-    <HelloWorld msg="Welcome to Your Personal Library"/>
+    <HomeMessage msg="Welcome to Your Personal Library"/>
     <button class="add-post"
             @click="toggleFormVisibility">Create..</button>
     <ItemForm v-if="showForm" />
@@ -9,14 +9,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import HomeMessage from '@/components/HomeMessage.vue';
 import ItemForm from '@/components/ItemForm.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    HomeMessage,
     ItemForm
   },
   data() {
