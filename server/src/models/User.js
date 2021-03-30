@@ -1,24 +1,17 @@
-const Promise = require('bluebird')
-const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
+const Promise = require('bluebird');
+const bcrypt = Promise.promisifyAll(require('bcrypt'));
 
 // eslint-disable-next-line no-unused-vars
 function hashPassword (user, options) {
     const SALT_FACTOR = 8
-
-    console.log('beforeChanged')
-
     if (!user.changed('password')) {
         return
     }
-    console.log('afterChanged')
-    return bcrypt
-        .genSaltAsync(SALT_FACTOR)
-        .then(salt => bcrypt.hashAsync(user.password, salt, null))
+    return bcrypt.hash(user.password, SALT_FACTOR)
         .then(hash => {
             user.setDataValue('password', hash)
         })
 }
-
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
@@ -29,17 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         password: DataTypes.STRING
     }, {
        hooks: {
-           beforeCreate: hashPassword,
-           beforeUpdate: hashPassword,
-           beforeSave: hashPassword
+           beforeCreate: hashPassword
        }
     })
 
-    // TODO Password is undefined problem with hashing to check
-    User.prototype.comparePasswords = (password) => {
-        console.log('User', password, this.password)
+    // TODO this works, check hwow to use it without `bluebird`;
+    User.prototype.comparePasswords = function(password) {
         return bcrypt.compareAsync(password, this.password);
-    }
+    };
 
     return User
 }

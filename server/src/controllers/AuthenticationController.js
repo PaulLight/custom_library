@@ -38,17 +38,20 @@ module.exports = {
 
             if (!user) {
                 res.status(403).send({
-                    error: 'The login information is incorrect'
+                    error: 'The login information is incorrect, no email valid email was found...'
                 })
+                return;
             }
 
             const isPasswordValid = await user.comparePasswords(password);
-            console.log('AuthenticationController.js');
+
             if (!isPasswordValid) {
                 res.status(403).send({
-                    error: 'The login information is incorrect'
+                    error: 'The login information is incorrect password is not good broa...'
                 })
+                return;
             }
+
             const userJson = user.toJSON();
             res.send({
                 user: userJson,
