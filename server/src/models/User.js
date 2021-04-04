@@ -1,5 +1,4 @@
-const Promise = require('bluebird');
-const bcrypt = Promise.promisifyAll(require('bcrypt'));
+const bcrypt = require('bcrypt');
 
 // eslint-disable-next-line no-unused-vars
 function hashPassword (user, options) {
@@ -26,9 +25,13 @@ module.exports = (sequelize, DataTypes) => {
        }
     })
 
-    // TODO this works, check hwow to use it without `bluebird`;
     User.prototype.comparePasswords = function(password) {
-        return bcrypt.compareAsync(password, this.password);
+        return new Promise(resolve => {
+            const compared = bcrypt.compare(password, this.password);
+            resolve(compared);
+        }).then( (compared) => {
+           return compared;
+        })
     };
 
     return User
