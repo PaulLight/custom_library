@@ -6,17 +6,19 @@
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field
-            type="email"
-            v-model="email"
-            placeholder="email"
-          ></v-text-field>
-          <br/>
-          <v-text-field
-            type="password"
-            v-model="password"
-            placeholder="password"
-          ></v-text-field>
+          <form name="tab-tracker-form">
+            <v-text-field
+              type="email"
+              v-model="email"
+              placeholder="email"
+            ></v-text-field>
+            <br/>
+            <v-text-field
+              type="password"
+              v-model="password"
+              placeholder="password"
+            ></v-text-field>
+          </form>
           <v-alert type="error" v-if="error">
             {{ error }}
           </v-alert>
@@ -53,9 +55,9 @@ export default {
           email: this.email,
           password: this.password
         });
-        console.log(response.data);
+        await this.$store.dispatch('setToken', response.data.token);
+        await this.$store.dispatch('setUser', response.data.user);
       } catch (error) {
-        console.log(error.response.data);
         this.error = error.response.data.error;
       }
     }

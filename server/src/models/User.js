@@ -25,13 +25,14 @@ module.exports = (sequelize, DataTypes) => {
        }
     })
 
-    User.prototype.comparePasswords = function(password) {
-        return new Promise(resolve => {
-            const compared = bcrypt.compare(password, this.password);
-            resolve(compared);
-        }).then( (compared) => {
-           return compared;
-        })
+    User.prototype.comparePasswords = async function(password) {
+        // return new Promise(resolve => {
+        //     const compared = bcrypt.compare(password, this.password);
+        //     resolve(compared);
+        // }).then( (compared) => {
+        //    return compared;
+        // })
+        return await bcrypt.compare(password, this.password);
     };
 
     return User
