@@ -13,8 +13,13 @@ export default {
   props: {
     msg: String
   },
-  data: () => ({
-
-  })
+  data: () => ({})
 };
 </script>
+
+<style scoped lang="scss">
+.text-center {
+  display: flex;
+  flex-direction: column;
+}
+</style>

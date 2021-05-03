@@ -1,6 +1,6 @@
 <template>
   <section class="form">
-    <form @submit="addItemToLibrary">
+    <form @submit.prevent="">
       <div class="field">
         <label class="label">Name</label>
         <div class="control">
@@ -66,15 +66,22 @@ export default {
         itemDescription: ''
       }
     };
-  },
-  methods: {
-    addItemToLibrary(e) {
-      e.preventDefault();
-    }
   }
 };
 </script>
 <style lang="scss" scoped>
+input, textarea {
+  margin-top: 10px;
+  padding: 5px;
+  border: 2px solid #cacaca;
+  outline: none;
+  width: 100%;
+
+  &:focus {
+    border: 2px solid #D6CFB4;
+  }
+}
+
 .field {
   padding: 20px 0;
 }

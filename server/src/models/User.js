@@ -29,9 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         // return new Promise(resolve => {
         //     const compared = bcrypt.compare(password, this.password);
         //     resolve(compared);
-        // }).then( (compared) => {
-        //    return compared;
-        // })
+        // }).then( compared => compared )
         return await bcrypt.compare(password, this.password);
     };
 

@@ -5,6 +5,7 @@ import Library from '../views/general_pages/Library.vue';
 import About from '../views/general_pages/About.vue';
 import Login from '../views/general_pages/Login.vue';
 import Register from '../views/general_pages/Register.vue';
+import CreateItem from '../views/general_pages/CreateItem.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
     path: '/library',
     name: 'Library',
     component: Library
+  },
+  {
+    path: '/library/create',
+    name: 'library-create',
+    component: CreateItem
   },
   {
     path: '/login',

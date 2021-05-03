@@ -2,9 +2,12 @@
   <div class="home">
     <img alt="Vue logo" src="../../assets/media/logo_main.png"/>
     <HomeMessage msg="Welcome to Your Personal Library"/>
-    <button class="add-post"
-            @click="toggleFormVisibility">Create..</button>
-    <ItemForm v-if="showForm" />
+    <div class="home__content">
+      <button class="add-post"
+              @click="toggleFormVisibility">Create..
+      </button>
+      <ItemForm v-if="showForm"/>
+    </div>
   </div>
 </template>
 
@@ -32,6 +35,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.home {
+  &__content {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+}
 .add-post {
   background-color: #D6CFB4;
   border: 1px solid black;
@@ -39,9 +48,11 @@ export default {
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+
   &:hover {
     border-color: #D6CFB4;
   }
+
   &:focus {
     outline: none;
   }

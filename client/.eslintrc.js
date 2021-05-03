@@ -18,7 +18,7 @@ module.exports = {
     semi: ['error', 'always'],
     indent: ['error', 2],
     'no-multi-spaces': ['error'],
-    'max-len': ['error', 150, { ignoreUrls: true }],
+    'max-len': ['error', 250, { ignoreUrls: true }],
     'comma-dangle': ['error', 'never']
   }
 };
